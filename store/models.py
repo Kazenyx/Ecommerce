@@ -13,7 +13,7 @@ class Customer(models.Model):
   
 class Product(models.Model):
   name = models.CharField(max_length=200, null=True)
-  price = models.FloatField()
+  price = models.DecimalField(max_digits=7, decimal_places=2)
   digital = models.BooleanField(default=False, null=True, blank=True)
   image = models.ImageField(null=True, blank=True)
   created = models.DateTimeField(auto_now_add=True)
@@ -83,6 +83,6 @@ class ShippingAddress(models.Model):
   zipcode = models.CharField(max_length=200, null=True)
   date_added = models.DateTimeField(auto_now_add=True)
   
-  def __self__(self):
-    return self.address
+  def __str__(self):
+    return str(self.address)
   
